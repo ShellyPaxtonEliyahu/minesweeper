@@ -1,0 +1,32 @@
+body{
+    background-color: whitesmoke;
+    text-align: center;
+}
+table{
+    margin: 30px auto;
+    height: 200px;
+    width: 200px;
+    border: 5px solid lightslategrey;
+}
+.cell {
+    border: 1px solid lightslategray;
+    
+}
+button{
+    height: 50px;
+    width: 100px;
+    color: darkblue;
+    background-color: lightslategrey;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+.start-btn{
+    margin-top: 20px;
+    height: 50px;
+    width: 50px;
+}
+h1{
+    color: rgb(98, 98, 98);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    
+}

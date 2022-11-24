@@ -136,7 +136,7 @@ function getEmptyCell(board) {
 ////////////////////////////////////////////////////////////
 
 //neighbors loop:
-function countFoodAround(board, rowIdx, colIdx) {
+function countMinesAround(board, rowIdx, colIdx) {
 
     for (var i = rowIdx -1 ; i <= rowIdx +1;i++) {
       if (i<0 || i >= board.length) continue
@@ -144,6 +144,7 @@ function countFoodAround(board, rowIdx, colIdx) {
         if (i === rowIdx && j === colIdx) continue
         if (j <0|| j >= board[0].length) continue
         var currCell = board[i][j]
+        
       }
     }
 }
