@@ -6,12 +6,9 @@ table{
     margin: 30px auto;
     height: 200px;
     width: 200px;
-    border: 5px solid lightslategrey;
+    border: 1px solid lightslategrey;
 }
-.cell {
-    border: 1px solid lightslategray;
-    
-}
+
 button{
     height: 50px;
     width: 100px;
