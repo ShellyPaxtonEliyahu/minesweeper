@@ -1,15 +1,17 @@
-body{
+body {
     background-color: whitesmoke;
     text-align: center;
+    
 }
-table{
+
+table {
     margin: 30px auto;
     height: 200px;
     width: 200px;
     border: 1px solid lightslategrey;
 }
 
-button{
+button {
     height: 50px;
     width: 100px;
     color: darkblue;
@@ -17,13 +19,26 @@ button{
     border-radius: 10px;
     font-weight: bolder;
 }
-.start-btn{
+
+.start-btn {
     margin-top: 20px;
     height: 50px;
     width: 50px;
 }
-h1{
+
+h1 {
     color: rgb(98, 98, 98);
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+h3 {
+    display: inline-block;
+}
+
+#timer {
+    margin-right: 20px;
+}
+#minesCount {
+    margin-left: 20px;
 }
