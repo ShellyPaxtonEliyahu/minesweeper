@@ -9,13 +9,13 @@ var gMines
 var gEndGame
 var gSec
 var gTimer
-
 var gGame = {
     isOn: false,
     shownCount: 0,
     markedCount: 0,
     secsPassed: 0
 }
+
 
 
 function initGame(size = gSize, mines = gMines) {
@@ -84,7 +84,11 @@ function renderBoard(board) {
             else if (currCell === FLAG) cellClass += ' flag'
             else cellClass += ' number'
 
-            strHTML += `<td class="cell ${cellClass}" onclick="onCellClick(${i}, ${j})" oncontextmenu="cellMarked(${i},${j}); return false">${currCell}`
+            var cellSelected = "tdgeneral"
+            if (board[i][j].isShown)
+                cellSelected = "tdselected"
+
+            strHTML += `<td id= "cellid" class="cell ${cellClass} ${cellSelected}" onclick="onCellClick(${i}, ${j})" oncontextmenu="cellMarked(${i},${j}); return false">${currCell}`
             strHTML += '</td>'
         }
         strHTML += '</tr>'
@@ -93,19 +97,24 @@ function renderBoard(board) {
     const elBoard = document.querySelector('tbody.board')
     elBoard.innerHTML = strHTML
 }
-
+6
 function onCellClick(cellI, cellJ) {
-    if (!gGame.isOn) return
-    if (gBoard[cellI][cellJ].isShown || gBoard[cellI][cellJ].isMarked) return
+    if (!gGame.isOn) 
+        return
+    if (gBoard[cellI][cellJ].isShown || gBoard[cellI][cellJ].isMarked) 
+        return
     gBoard[cellI][cellJ].isShown = true
     countMinesAround(gBoard, cellI, cellJ)
 
-    if (!gBoard[cellI][cellJ].isMine) gGame.shownCount++
-    if (gGame.shownCount === 1) setTime()
+    if (!gBoard[cellI][cellJ].isMine) 
+        gGame.shownCount++
+    if (gGame.shownCount === 1) 
+        setTime()
 
     checkGameOver(cellI, cellJ)
     renderBoard(gBoard)
-    if (gBoard[cellI][cellJ].minesAroundCount === 0) openZeros(cellI, cellJ)
+    if (gBoard[cellI][cellJ].minesAroundCount === 0) 
+        openZeros(cellI, cellJ)
 }
 
 function openZeros(cellI, cellJ) {
@@ -160,17 +169,25 @@ function checkGameOver(cellI, cellJ) {
 
 function lostGame() {
     gGame.isOn = false
-    clearInterval(gTimer)
+    // clearInterval(gTimer)
     showMines(false)
     document.getElementsByClassName("start-btn")[0].innerText = '🤯'
-    window.alert("You lose...")
+    // alert ('You lose...')
+    setTimeout(function() {
+        clearInterval(gTimer)
+        alert('You lose...')
+    },0);
 }
 function wonGame() {
     gGame.isOn = false
-    clearInterval(gTimer)
+    // clearInterval(gTimer)
     showMines(true)
     document.getElementsByClassName("start-btn")[0].innerText = '😎'
-    window.alert("You win!")
+    // alert('You win!')
+    setTimeout(function() {
+        clearInterval(gTimer)
+        window.alert("You win!")
+    },0);
 }
 
 function showMines(mark) {
